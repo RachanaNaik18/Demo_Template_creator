@@ -6,6 +6,7 @@ def template_path(request):
     print(request.get_host())
     website_setting=Settings.objects.get(domain_name__name=request.get_host().split(":")[0])
     images=Images.objects.filter(website=website_setting.website)
+    print(website_setting.website.sections.all().values_list('data_json', flat=True))
     configs=Configuration.objects.filter(website=website_setting.website)
 
     

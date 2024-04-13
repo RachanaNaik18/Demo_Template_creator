@@ -38,6 +38,9 @@ class Website(models.Model):
     sections = models.ManyToManyField(Sections)
     logo = models.ImageField(upload_to='logo',null=True, blank=True)
 
+
+
+
 IMAGE_TYPE=(
     ("gallery","gallery"),
     ("amenities","amenities"),

@@ -1,11 +1,36 @@
 {% load static %}
 <div class="">
-    <h2 class="text-center text-4xl font-bold decoration-15 text-slate-950">Image Gallery</h2>
-    <div class="grid grid-cols-3 grid-flow-row gap-4 ">
-    {% for i in images%}
-        {% if i.img_type == 'gallery' %}
-            <img src="{{i.item.url}}" alt="image" class="p-6 h-auto transition duration-300 transform hover:scale-110">
-        {% endif %} 
-    {% endfor %}
+    <div id="owl-demo" class="owl-carousel owl-theme">
+        {% for i in images%}
+            {% if i.img_type == 'gallery' %}
+                <div class="item"><img
+                src="{{i.item.url}}"
+                class="w-100 h-68"
+                alt="..." /></div>
+            {% endif %} 
+        {% endfor %}
     </div>
 </div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script>
+    $(document).ready(function() {
+ 
+        $("#owl-demo").owlCarousel({
+       
+            navigation : true, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true
+       
+            // "singleItem:true" is a shortcut for:
+            // items : 1, 
+            // itemsDesktop : false,
+            // itemsDesktopSmall : false,
+            // itemsTablet: false,
+            // itemsMobile : false
+       
+        });
+       
+      });
+  </script>

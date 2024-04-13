@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
 {% block title %}
 {% endblock title %}
 
 {% block content %}
-{% for i in website.sections.all %}
+{% for section in website.sections.all|order_by:"position" %}
 <div>
-    {% include i.path %}
+    {% include section.path %}
 </div>
 {% endfor %}
 {% endblock content %}
+{% block javascripts %}
+
+    
+{% endblock javascripts %}
