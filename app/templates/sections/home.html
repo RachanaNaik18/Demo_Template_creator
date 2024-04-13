@@ -1,0 +1,17 @@
+<!-- {% for i in images%}
+    {% if i.img_type == 'Home' %} -->
+<div  id="home">
+        <!-- <img src="" alt="image" class="p-6 h-auto transition duration-300 transform hover:scale-110"> -->
+        {% for j in i.data_json %}
+        <h2 class="{{j.header.class}}">
+            {{j.header.content}}
+        <h2 class="text-6xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quisquam excepturi perferendis cumque quia eos voluptate itaque atque ad repudiandae iste molestias beatae assumenda est ipsa, eum ullam aliquid possimus? </h2>
+        </h2>
+        <p>
+            {{j.para.content}}
+        </p>
+        <button>{{j.Button.label}}</button>
+        {% endfor %}
+    </div>
+    <!-- {% endif %} 
+{% endfor %} -->

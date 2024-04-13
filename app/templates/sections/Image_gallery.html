@@ -1,0 +1,11 @@
+{% load static %}
+<div class="">
+    <h2 class="text-center text-4xl font-bold decoration-15 text-slate-950">Image Gallery</h2>
+    <div class="grid grid-cols-3 grid-flow-row gap-4 ">
+    {% for i in images%}
+        {% if i.img_type == 'gallery' %}
+            <img src="{{i.item.url}}" alt="image" class="p-6 h-auto transition duration-300 transform hover:scale-110">
+        {% endif %} 
+    {% endfor %}
+    </div>
+</div>
