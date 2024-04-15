@@ -48,8 +48,7 @@ IMAGE_TYPE=(
     ("floor plan","floor plan"),
     ("Cover Image","Cover Image"),
     ("Home","Home"),
-    ("About us","About us"),
-    
+    ("About us","About us"),  
 )
 
 class Images(models.Model):
@@ -58,36 +57,23 @@ class Images(models.Model):
     name=models.CharField(max_length=200)
     website = models.ForeignKey(Website, on_delete=models.CASCADE)
 
-
-
-
 CONFIG_CHOICES=(
-
     ("1 RK","1 RK"),
     ("1 BHK","1 BHK"),
     ("1.5 BHK","1.5 BHK"),
-    ("2 BHK","1 2HK"),
-    ("2.5 BHK","1 2.5HK"),
-    ("3 BHK","1 BH3"),
-    ("4 BHK","1 BH4"),
+    ("2 BHK","2 BHK"),
+    ("2.5 BHK","2.5 BHK"),
+    ("3 BHK","3 BHK"),
+    ("4 BHK","4 BHK"),
 )
-
 class Configuration(models.Model):
     config=models.CharField(max_length=200,choices=CONFIG_CHOICES)
     image = models.ImageField(upload_to='config',null=True, blank=True)
-    measurements=models.JSONField(default=dict(
-        carpet_area=0,
-        rera_carpet_area=0,
-        built_up_area=0,
-        rera_built_up_area=0
-    ))
-    pricing=models.JSONField(default=dict(
-        all_in=0,
-        basic_price=0
-    ))
-    request_price=models.BooleanField(default=False)
+    rera_carpet_area=models.IntegerField(null=True)
+    al_in=models.IntegerField(null=True)
+    basic_price=models.IntegerField(null=True)
+    request_price=models.BooleanField(default = False)
     website = models.ForeignKey(Website, on_delete=models.CASCADE)
-
 
 
 class Domain(models.Model):

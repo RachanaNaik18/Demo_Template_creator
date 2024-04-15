@@ -1,36 +1,61 @@
 {% load static %}
-<div class="">
-    <div id="owl-demo" class="owl-carousel owl-theme">
+ <div class=" p-8" id="gallery">
+    <h1 class="relative text-6xl text-blue-700 font-bold text-center">
+        Image Gallery
+      </h1>
+    <div id="owl-demo" class="owl-carousel owl-theme  my-6">
         {% for i in images%}
             {% if i.img_type == 'gallery' %}
-                <div class="item"><img
+                <div class="item relative"><img
                 src="{{i.item.url}}"
-                class="w-100 h-68"
-                alt="..." /></div>
+                class="object-cover transition-transform duration-300 "
+                alt="..." />
+                <div class="absolute text-center text-4xl  bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white font-bols p-2">
+                    {{i.name}}
+                  </div>
+            </div>
             {% endif %} 
         {% endfor %}
     </div>
-</div>
+</div> 
 <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script>
-    $(document).ready(function() {
- 
-        $("#owl-demo").owlCarousel({
-       
-            navigation : true, // Show next and prev buttons
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            singleItem:true
-       
-            // "singleItem:true" is a shortcut for:
-            // items : 1, 
-            // itemsDesktop : false,
-            // itemsDesktopSmall : false,
-            // itemsTablet: false,
-            // itemsMobile : false
-       
+<script> 
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+          // Owl Carousel options
+          // ...
+          // Your configuration options here
+          // For example:
+          items: 2, // Show one item at a time
+          loop: true, // Loop through the items
+          autoplay: true, // Autoplay enabled
+          autoplayTimeout: 5000, // Autoplay interval (in milliseconds)
+          // Callback function to modify the size of images
+          onInitialized: function(event) {
+            // Change the size of images here
+            $(".owl-item img").css("width", "100%"); // Set image width to 100%
+            $(".owl-item img").css("height", "400px"); // Set image height to auto (maintain aspect ratio)
+          }
         });
-       
       });
-  </script>
+      
+     {% comment %} $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    }) {% endcomment %}
+  </script> 
+
+

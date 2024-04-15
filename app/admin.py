@@ -22,6 +22,10 @@ class Website_admin(admin.ModelAdmin):
 class Images_admin(admin.ModelAdmin):
     list_display=['img_type', 'item']
 
+@admin.register(Configuration)
+class Config_admin(admin.ModelAdmin):
+    list_display=['config']
+
 
 admin.site.register(Settings)
 admin.site.register(Domain)
