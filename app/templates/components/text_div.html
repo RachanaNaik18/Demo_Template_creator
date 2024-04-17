@@ -1,0 +1,10 @@
+{% load custom_filters %}
+<div div class="{{data.class}}">
+    {% for i in data.childrens %}
+        {% for element, data in  i.items %}
+            {% include element|get_element %}
+        {% endfor %}
+    {% endfor %}
+{% comment %} <h1 class="{{data.left.class}}">{{data.left.h1}}</h1>
+<p class="{{data.left.class}}">{{data.left.content}}</p> {% endcomment %}
+</div>

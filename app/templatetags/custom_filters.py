@@ -21,14 +21,21 @@ register.filter("filter_image_by_image_type",filter_image_by_image_type)
 def get_element(element):
     element_path={
         "p":"components/p.html",
-        "h1":"components/h1.html"
+        "h1":"components/h1.html",
+        "div":"components/text_div.html"
     }
+    print(element,element_path[element])
     return element_path[element]
 
-
 register.filter("get_element",get_element)
+
 
 
 def enquiry_Form(value):
     element_path="components/form.html"
     return element_path
+
+register.filter("enquiry_Form",enquiry_Form)
+
+# -------------------------- About us components -----------------------------
+

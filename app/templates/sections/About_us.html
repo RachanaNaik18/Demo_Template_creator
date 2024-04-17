@@ -1,3 +1,32 @@
-<div>
+{% load custom_filters %}
 
+<div>
+    <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8 bg-gray-100" id="about_us">
+
+    <h2 class="relative text-6xl font-bold text-center">About Us</h2>
+
+
+        <!-- Main div with flex layout -->
+        <div class="flex sm:flex-row  items-center justify-center py-10">
+          <!-- First div on the left side -->
+         <div class="flex-1 sm:flex-auto sm:ml-4">
+            {% for element, data in section.data_json.items %}
+            {% include element|get_element %}
+            {% endfor %}
+            <a
+            href="#"
+            class="block w-10 rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
+            Get Started </a>
+         </div>
+          <!-- Two divs stacked vertically on smaller screens -->
+          <div class="flex-1 sm:flex-auto sm:ml-4">
+            {% for img in images%}
+             {% if img.img_type == 'About us' %}
+                <img src="{{img.item.url}}" alt="" class="w-full h-full rounded">
+              {% endif %}
+            {% endfor %}
+          </div> 
+      
+        </div>
+    </div>
 </div>
