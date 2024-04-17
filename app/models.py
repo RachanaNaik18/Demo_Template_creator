@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -39,9 +38,7 @@ class Website(models.Model):
     sections = models.ManyToManyField(Sections)
     logo = models.ImageField(upload_to='logo',null=True, blank=True)
 
-class Location(models.Model):
-    name=models.CharField(max_length=200)
-    coordinates=models.PointField()
+
 
 
 
@@ -52,7 +49,8 @@ IMAGE_TYPE=(
     ("floor plan","floor plan"),
     ("Cover Image","Cover Image"),
     ("Home","Home"),
-    ("About us","About us"),  
+    ("About us","About us"), 
+    ("location","location"),
 )
 
 class Images(models.Model):

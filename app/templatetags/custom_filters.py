@@ -22,7 +22,8 @@ def get_element(element):
     element_path={
         "p":"components/p.html",
         "h1":"components/h1.html",
-        "div":"components/text_div.html"
+        "div":"components/text_div.html",
+        "ul":"components/ul.html"
     }
     print(element,element_path[element])
     return element_path[element]
