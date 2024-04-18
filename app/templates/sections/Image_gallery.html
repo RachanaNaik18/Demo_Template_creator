@@ -3,12 +3,12 @@
     <h1 class="relative text-6xl text-blue-700 font-bold text-center">
         Image Gallery
       </h1>
-    <div id="owl-demo" class="owl-carousel owl-theme  my-6">
+    <div id="owl-demo" class="owl-carousel owl-theme my-6">
         {% for i in images%}
             {% if i.img_type == 'gallery' %}
                 <div class="item relative"><img
                 src="{{i.item.url}}"
-                class="object-cover transition-transform duration-300 "
+                class="object-cover transition-transform duration-300"
                 alt="..." />
                 <div class="absolute text-center text-4xl  bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white font-bols p-2">
                     {{i.name}}
@@ -31,6 +31,17 @@
           loop: true, // Loop through the items
           autoplay: true, // Autoplay enabled
           autoplayTimeout: 5000, // Autoplay interval (in milliseconds)
+          {% comment %} responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        } {% endcomment %}
           // Callback function to modify the size of images
           onInitialized: function(event) {
             // Change the size of images here
@@ -44,17 +55,7 @@
         loop:true,
         margin:10,
         nav:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:5
-            }
-        }
+       
     }) {% endcomment %}
   </script> 
 
