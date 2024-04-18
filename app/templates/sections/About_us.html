@@ -10,7 +10,7 @@
     </h2>
 
     <!-- Main div with flex layout -->
-    <div class="flex sm:flex-row items-center justify-center sm:py-10">
+    <div class="flex sm:flex-row justify-center sm:py-10">
       <!-- First div on the left side -->
       <div class="flex-1 text-center sm:text-left sm:flex-auto sm:ml-4">
         {% for element, data in section.data_json.items %} 
@@ -18,8 +18,7 @@
          {% endfor %}
         <a
           href="#"
-          class="block w-3/5 sm:w-2/5 items-center rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500"
-        >
+          class="block w-3/5 sm:w-2/5 rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500">
           Get Started
         </a>
       </div>

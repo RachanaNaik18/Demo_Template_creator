@@ -4,13 +4,9 @@
 
 {% for i in images|filter_image_by_image_type:"Home" %} 
 
-<section
-  class="relative bg-[url('{{i.item.url}}')] bg-cover bg-center bg-no-repeat flex"
->
-
-  <div
-    class="relative mx-auto max-w-screen-xl w-full md:justify-between px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
-  >
+<section class="relative bg-[url('{{i.item.url}}')] bg-cover bg-center bg-no-repeat flex">
+<div class="w-full sm:bg-opacity-100 sm:bg-gradient-to-r from-white to-transperent">
+  <div  class="relative mx-auto max-w-screen-xl w-full md:justify-between px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 ">
     <div class="max-w-xl text-center  ltr:sm:text-left  rtl:sm:text-right">
         <div class="mt-8 flex flex-col gap-4 text-left">
             {% for element,data in section.data_json.items %}
@@ -34,5 +30,6 @@
     </div>
     {% include "components/form.html" %}
   </div>
+</div>
 </section>
 {% endfor %}
