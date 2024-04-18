@@ -5,29 +5,31 @@
 {% for i in images|filter_image_by_image_type:"Home" %} 
 
 <section
-  class="relative bg-[url('{{i.item.url}}')] bg-cover bg-center bg-no-repeat bg-blend-lighten flex"
+  class="relative bg-[url('{{i.item.url}}')] bg-cover bg-center bg-no-repeat flex"
 >
 
   <div
-    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+    class="relative mx-auto max-w-screen-xl w-full md:justify-between px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
   >
-    <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-        <div class="mt-8 flex flex-wrap gap-4 text-center">
+    <div class="max-w-xl text-center  ltr:sm:text-left  rtl:sm:text-right">
+        <div class="mt-8 flex flex-col gap-4 text-left">
             {% for element,data in section.data_json.items %}
             {% include element|get_element %}
             {% endfor %}
+            <div class="flex">
             <a
             href="#"
-            class="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
+            class="block w-full rounded bg-rose-600 mx-1 px-10 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
             Get Started
         </a>
         
         <a
         href="#"
-        class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+        class="block w-full rounded bg-white px-10 sm:px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
         >
         Learn More
     </a>
+  </div>
 </div>
     </div>
     {% include "components/form.html" %}

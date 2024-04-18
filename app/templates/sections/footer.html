@@ -1,3 +1,7 @@
-<div class="">
-
+{% load custom_filters %}
+<div class="text-white">
+    {% for element, data in section.data_json.items %}
+    {{data.content}}
+    {% include element|get_element %}
+    {% endfor %}
 </div>
